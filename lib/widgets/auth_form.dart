@@ -11,6 +11,7 @@ class _AuthFormState extends State<AuthForm> {
   var _emailController = TextEditingController();
   var _usernameController = TextEditingController();
   var _passwordController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -90,6 +91,8 @@ class _AuthFormState extends State<AuthForm> {
 
   void _trySubmit() {
     if(_formKey.currentState.validate()){
+      FocusScope.of(context).unfocus();
+
       print('${_emailController.text}, ${_usernameController.text}, ${_passwordController.text}');
     }
   }
